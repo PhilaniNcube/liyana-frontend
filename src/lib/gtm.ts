@@ -59,7 +59,7 @@ interface PageViewParams {
  */
 export const trackPageView = ({ url }: PageViewParams) => {
   sendGTMEvent({
-    event: "page_view",
+    event: "pageView",
     page_path: url,
   });
 };
