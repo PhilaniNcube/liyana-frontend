@@ -49,3 +49,18 @@ export const trackCalculatorEstimate = ({ coverAmount, dependents, estimatedPrem
     estimated_premium: estimatedPremium,
   });
 };
+
+interface PageViewParams {
+  url: string;
+}
+
+/**
+ * Tracks page views (e.g. for client-side routing).
+ */
+export const trackPageView = ({ url }: PageViewParams) => {
+  sendGTMEvent({
+    event: "page_view",
+    page_path: url,
+  });
+};
+

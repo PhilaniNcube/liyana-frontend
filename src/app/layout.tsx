@@ -4,6 +4,7 @@ import "./globals.css";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { GoogleTagManager } from "@next/third-parties/google";
+import { GtmTracker } from "@/components/gtm-tracker";
 
 const hankenGrotesk = Hanken_Grotesk({
   variable: "--font-hanken-grotesk",
@@ -33,6 +34,7 @@ export default function RootLayout({
     >
       <GoogleTagManager gtmId="GTM-MQMJTTXR" />
       <body className="min-h-full flex flex-col bg-background text-foreground">
+        <GtmTracker />
         <Header />
         <main className="flex-grow flex flex-col">{children}</main>
         <Footer />
@@ -40,3 +42,4 @@ export default function RootLayout({
     </html>
   );
 }
+
