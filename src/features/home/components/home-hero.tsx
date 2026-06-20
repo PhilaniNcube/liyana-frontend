@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
+import { trackCTA } from "@/lib/gtm";
 
 export function HomeHero() {
   return (
@@ -22,6 +25,7 @@ export function HomeHero() {
             href="https://apply.liyanafinance.co.za"
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackCTA({ text: "Apply Now", location: "hero", url: "https://apply.liyanafinance.co.za" })}
             className={buttonVariants({
               variant: "default",
               className: "h-12 px-8 text-base font-semibold uppercase tracking-wider inline-flex items-center justify-center",
@@ -31,6 +35,7 @@ export function HomeHero() {
           </a>
           <Link
             href="/plans"
+            onClick={() => trackCTA({ text: "Compare Our Plans", location: "hero", url: "/plans" })}
             className={buttonVariants({
               variant: "outline",
               className: "h-12 px-8 text-base font-medium border border-black uppercase tracking-wider hover:bg-zinc-100 inline-flex items-center justify-center",

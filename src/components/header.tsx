@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { buttonVariants } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import type { Route } from "next";
+import { trackCTA } from "@/lib/gtm";
 
 export function Header() {
   const pathname = usePathname();
@@ -65,6 +66,7 @@ export function Header() {
             href="https://apply.liyanafinance.co.za"
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackCTA({ text: "Apply Now", location: "header", url: "https://apply.liyanafinance.co.za" })}
             className={buttonVariants({
               variant: "default",
               className: "px-6 py-2.5 rounded-none font-semibold uppercase tracking-wider text-xs inline-flex items-center justify-center",
@@ -117,7 +119,10 @@ export function Header() {
             href="https://apply.liyanafinance.co.za"
             target="_blank"
             rel="noopener noreferrer"
-            onClick={() => setMobileMenuOpen(false)}
+            onClick={() => {
+              setMobileMenuOpen(false);
+              trackCTA({ text: "Apply Now", location: "header", url: "https://apply.liyanafinance.co.za" });
+            }}
             className={buttonVariants({
               variant: "default",
               className: "w-full py-3 rounded-none font-semibold uppercase tracking-wider text-xs text-center mt-2 inline-flex items-center justify-center",

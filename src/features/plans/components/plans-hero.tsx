@@ -1,4 +1,7 @@
+"use client";
+
 import { Button, buttonVariants } from "@/components/ui/button";
+import { trackCTA } from "@/lib/gtm";
 
 export function PlansHero() {
   return (
@@ -15,6 +18,7 @@ export function PlansHero() {
             href="https://apply.liyanafinance.co.za"
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackCTA({ text: "Apply Online Now", location: "plans_hero", url: "https://apply.liyanafinance.co.za" })}
             className={buttonVariants({
               variant: "default",
               className: "h-12 px-8 text-base font-semibold uppercase tracking-wider inline-flex items-center justify-center",
@@ -22,7 +26,11 @@ export function PlansHero() {
           >
             Apply Online Now
           </a>
-          <Button variant="outline" className="h-12 px-8 text-base font-medium border border-black uppercase tracking-wider hover:bg-zinc-100">
+          <Button
+            variant="outline"
+            onClick={() => trackCTA({ text: "Speak to an Advisor", location: "plans_hero" })}
+            className="h-12 px-8 text-base font-medium border border-black uppercase tracking-wider hover:bg-zinc-100"
+          >
             Speak to an Advisor
           </Button>
         </div>

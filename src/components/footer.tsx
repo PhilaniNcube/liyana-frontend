@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { trackCTA } from "@/lib/gtm";
 
 export function Footer() {
   return (
@@ -23,16 +26,32 @@ export function Footer() {
           </div>
         </div>
         <div className="flex flex-wrap gap-6 font-semibold md:justify-end text-sm shrink-0">
-          <Link href="/privacy-policy" className="text-zinc-500 hover:text-white transition-colors">
+          <Link
+            href="/privacy-policy"
+            onClick={() => trackCTA({ text: "Privacy Policy", location: "footer", url: "/privacy-policy" })}
+            className="text-zinc-500 hover:text-white transition-colors"
+          >
             Privacy Policy
           </Link>
-          <Link href="/terms" className="text-zinc-500 hover:text-white transition-colors">
+          <Link
+            href="/terms"
+            onClick={() => trackCTA({ text: "Terms of Service", location: "footer", url: "/terms" })}
+            className="text-zinc-500 hover:text-white transition-colors"
+          >
             Terms of Service
           </Link>
-          <Link href="/compliance" className="text-zinc-500 hover:text-white transition-colors">
+          <Link
+            href="/compliance"
+            onClick={() => trackCTA({ text: "Compliance", location: "footer", url: "/compliance" })}
+            className="text-zinc-500 hover:text-white transition-colors"
+          >
             Compliance
           </Link>
-          <Link href="/claims" className="text-zinc-500 hover:text-white transition-colors">
+          <Link
+            href="/claims"
+            onClick={() => trackCTA({ text: "Claims Process", location: "footer", url: "/claims" })}
+            className="text-zinc-500 hover:text-white transition-colors"
+          >
             Claims Process
           </Link>
         </div>

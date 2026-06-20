@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Info } from "lucide-react";
 import { buttonVariants } from "@/components/ui/button";
+import { trackCTA, trackCalculatorEstimate } from "@/lib/gtm";
 
 export function PremiumCalculator() {
   // Calculator state
@@ -17,6 +18,14 @@ export function PremiumCalculator() {
   const coverRate = (coverAmount - 10000) * 0.0055;
   const dependentRate = dependents * 50;
   const estimatedMonthly = Math.round(baseRate + coverRate + dependentRate);
+
+  const handleTrackEstimate = () => {
+    trackCalculatorEstimate({
+      coverAmount,
+      dependents,
+      estimatedPremium: estimatedMonthly,
+    });
+  };
 
   return (
     <section className="px-6 py-16 md:py-24 max-w-[1280px] mx-auto border-t border-border">
@@ -43,6 +52,8 @@ export function PremiumCalculator() {
                 step="5000"
                 value={coverAmount}
                 onChange={(e) => setCoverAmount(Number(e.target.value))}
+                onMouseUp={handleTrackEstimate}
+                onTouchEnd={handleTrackEstimate}
                 className="w-full accent-primary bg-zinc-800 h-1 cursor-pointer outline-none"
               />
               <div className="flex justify-between text-[10px] text-zinc-500">
@@ -65,6 +76,8 @@ export function PremiumCalculator() {
                 step="1"
                 value={dependents}
                 onChange={(e) => setDependents(Number(e.target.value))}
+                onMouseUp={handleTrackEstimate}
+                onTouchEnd={handleTrackEstimate}
                 className="w-full accent-primary bg-zinc-800 h-1 cursor-pointer outline-none"
               />
               <div className="flex justify-between text-[10px] text-zinc-500">
@@ -94,6 +107,7 @@ export function PremiumCalculator() {
               href="https://apply.liyanafinance.co.za"
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackCTA({ text: "Apply Online Now", location: "premium_calculator", url: "https://apply.liyanafinance.co.za" })}
               className={buttonVariants({
                 variant: "default",
                 className: "w-full h-12 uppercase font-bold tracking-wider inline-flex items-center justify-center",

@@ -1,5 +1,8 @@
+"use client";
+
 import { buttonVariants } from "@/components/ui/button";
 import { NewsletterForm } from "./newsletter-form";
+import { trackCTA } from "@/lib/gtm";
 
 export function BlogSidebar() {
   return (
@@ -46,6 +49,7 @@ export function BlogSidebar() {
           href="https://apply.liyanafinance.co.za"
           target="_blank"
           rel="noopener noreferrer"
+          onClick={() => trackCTA({ text: "GET A QUOTE", location: "blog_sidebar", url: "https://apply.liyanafinance.co.za" })}
           className={buttonVariants({
             variant: "secondary",
             className: "w-full relative z-10 font-bold uppercase tracking-wider inline-flex items-center justify-center",

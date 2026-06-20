@@ -3,14 +3,20 @@
 import { useState } from "react";
 import { Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { trackNewsletterSubscribe } from "@/lib/gtm";
 
-export function NewsletterForm() {
+interface NewsletterFormProps {
+  location?: string;
+}
+
+export function NewsletterForm({ location = "blog_sidebar" }: NewsletterFormProps) {
   const [email, setEmail] = useState("");
   const [subscribed, setSubscribed] = useState(false);
 
   const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault();
     if (email) {
+      trackNewsletterSubscribe({ location });
       setSubscribed(true);
       setEmail("");
     }
