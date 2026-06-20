@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { buttonVariants } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
@@ -25,9 +26,22 @@ export function Header() {
       <div className="flex justify-between items-center px-6 py-4 max-w-[1280px] mx-auto">
         <Link href="/" className="font-bold text-lg text-foreground tracking-tight flex items-center gap-2">
           {/* Logo Mark */}
-          <div className="size-8 bg-secondary flex items-center justify-center font-bold text-white text-lg tracking-wider">
-            L
-          </div>
+          <Image
+            src="/images/Liyana Finance_Logo_Black.png"
+            alt="Liyana Finance Logo"
+            width={32}
+            height={32}
+            className="size-8 object-contain dark:hidden"
+            priority
+          />
+          <Image
+            src="/images/Liyana_Finance_Logo_White.png"
+            alt="Liyana Finance Logo"
+            width={32}
+            height={32}
+            className="size-8 object-contain hidden dark:block"
+            priority
+          />
           <span>Liyana Finance</span>
         </Link>
 
@@ -42,11 +56,10 @@ export function Header() {
               <Link
                 key={link.name}
                 href={link.href}
-                className={`font-medium text-sm transition-colors duration-200 pb-1 ${
-                  isActive
+                className={`font-medium text-sm transition-colors duration-200 pb-1 ${isActive
                     ? "text-secondary border-b-2 border-primary font-bold dark:text-primary"
                     : "text-zinc-600 dark:text-zinc-400 hover:text-secondary dark:hover:text-primary"
-                }`}
+                  }`}
               >
                 {link.name}
               </Link>
@@ -63,10 +76,10 @@ export function Header() {
         {/* Action Button */}
         <div className="hidden md:block">
           <a
-            href="https://apply.liyanafinance.co.za"
+            href="https://apply.liyanafinance.co.za/insurance/funeral"
             target="_blank"
             rel="noopener noreferrer"
-            onClick={() => trackCTA({ text: "Apply Now", location: "header", url: "https://apply.liyanafinance.co.za" })}
+            onClick={() => trackCTA({ text: "Apply Now", location: "header", url: "https://apply.liyanafinance.co.za/insurance/funeral" })}
             className={buttonVariants({
               variant: "default",
               className: "px-6 py-2.5 rounded-none font-semibold uppercase tracking-wider text-xs inline-flex items-center justify-center",
@@ -98,11 +111,10 @@ export function Header() {
                 key={link.name}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className={`text-sm py-2 block ${
-                  isActive
+                className={`text-sm py-2 block ${isActive
                     ? "text-secondary font-bold dark:text-primary border-l-2 border-primary pl-2"
                     : "text-zinc-600 dark:text-zinc-400"
-                }`}
+                  }`}
               >
                 {link.name}
               </Link>
@@ -116,12 +128,12 @@ export function Header() {
             Contact
           </a>
           <a
-            href="https://apply.liyanafinance.co.za"
+            href="https://apply.liyanafinance.co.za/insurance/funeral"
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => {
               setMobileMenuOpen(false);
-              trackCTA({ text: "Apply Now", location: "header", url: "https://apply.liyanafinance.co.za" });
+              trackCTA({ text: "Apply Now", location: "header", url: "https://apply.liyanafinance.co.za/insurance/funeral" });
             }}
             className={buttonVariants({
               variant: "default",

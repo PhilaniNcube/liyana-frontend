@@ -15,10 +15,10 @@ export function PlansHero() {
         </p>
         <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center md:justify-start">
           <a
-            href="https://apply.liyanafinance.co.za"
+            href="https://apply.liyanafinance.co.za/insurance/funeral"
             target="_blank"
             rel="noopener noreferrer"
-            onClick={() => trackCTA({ text: "Apply Online Now", location: "plans_hero", url: "https://apply.liyanafinance.co.za" })}
+            onClick={() => trackCTA({ text: "Apply Online Now", location: "plans_hero", url: "https://apply.liyanafinance.co.za/insurance/funeral" })}
             className={buttonVariants({
               variant: "default",
               className: "h-12 px-8 text-base font-semibold uppercase tracking-wider inline-flex items-center justify-center",

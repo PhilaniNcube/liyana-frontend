@@ -46,10 +46,10 @@ export function BlogSidebar() {
           Get a quote in minutes. Secure your family's future today with no medical exams required.
         </p>
         <a
-          href="https://apply.liyanafinance.co.za"
+          href="https://apply.liyanafinance.co.za/insurance/funeral"
           target="_blank"
           rel="noopener noreferrer"
-          onClick={() => trackCTA({ text: "GET A QUOTE", location: "blog_sidebar", url: "https://apply.liyanafinance.co.za" })}
+          onClick={() => trackCTA({ text: "GET A QUOTE", location: "blog_sidebar", url: "https://apply.liyanafinance.co.za/insurance/funeral" })}
           className={buttonVariants({
             variant: "secondary",
             className: "w-full relative z-10 font-bold uppercase tracking-wider inline-flex items-center justify-center",

@@ -14,18 +14,18 @@ export function HomeHero() {
           <span className="text-secondary font-bold dark:text-primary">FSP 12345</span>
         </div>
         <h1 className="text-4xl md:text-6xl font-bold tracking-tight leading-tight text-secondary dark:text-white">
-          Peace of Mind for You and <br />
-          <span className="text-zinc-500 font-medium">Your Loved Ones</span>
+          Peace of Mind for You <br /> and
+          <span className="text-zinc-500 font-bold"> Your Loved Ones</span>
         </h1>
         <p className="text-lg text-zinc-600 dark:text-zinc-400 max-w-lg leading-relaxed">
-          Liyana Finance specialises in providing affordable and reliable funeral cover to help you navigate life’s unexpected challenges with dignity and support.
+          Liyana Finance specialises in providing affordable and reliable funeral cover to help you navigate life&#39;s unexpected challenges with dignity and support.
         </p>
         <div className="pt-4 flex flex-wrap gap-4">
           <a
-            href="https://apply.liyanafinance.co.za"
+            href="https://apply.liyanafinance.co.za/insurance/funeral"
             target="_blank"
             rel="noopener noreferrer"
-            onClick={() => trackCTA({ text: "Apply Now", location: "hero", url: "https://apply.liyanafinance.co.za" })}
+            onClick={() => trackCTA({ text: "Apply Now", location: "hero", url: "https://apply.liyanafinance.co.za/insurance/funeral" })}
             className={buttonVariants({
               variant: "default",
               className: "h-12 px-8 text-base font-semibold uppercase tracking-wider inline-flex items-center justify-center",

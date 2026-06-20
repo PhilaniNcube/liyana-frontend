@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { trackCTA } from "@/lib/gtm";
 
 export function Footer() {
@@ -10,9 +11,13 @@ export function Footer() {
         <div className="flex flex-col items-start gap-4">
           <div className="flex items-center gap-2">
             {/* Logo Mark */}
-            <div className="size-6 bg-primary flex items-center justify-center font-bold text-secondary text-sm">
-              L
-            </div>
+            <Image
+              src="/images/Liyana_Finance_Logo_White.png"
+              alt="Liyana Finance Logo"
+              width={24}
+              height={24}
+              className="size-6 object-contain"
+            />
             <span className="font-bold text-white text-base tracking-tight">Liyana Finance</span>
           </div>
           <div className="max-w-xl text-zinc-500 space-y-2">
